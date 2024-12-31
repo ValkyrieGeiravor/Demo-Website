@@ -1,7 +1,3 @@
-<script>
-    import Login from "./Login.svelte";
-
-</script>
 <!-- Header bar -->
 <nav class="navbar navbar-expand-lg py-1 mb-3">
     <div class="container">
@@ -43,20 +39,49 @@
                 </ul>  
             </div>
 
-            <!-- Theme button -->
-            <!-- <div class="col-1 d-flex align-items-center justify-content-end order-2 order-lg-3">
-                <button class="btn btn-outline-success rounded">
-                    T
-                </button>
-            </div> -->
-
             <!-- User account -->
             <div class="col-3 col-lg-2 d-flex align-items-center justify-content-end order-2 order-lg-3">
-                <a class="btn btn-outline-success" href="/login" data-bs-toggle="modal" data-bs-target="#LoginModal">Login</a>
+                {#if username == '' || username == undefined}
+                    <button class="btn btn-outline-success" data-bs-toggle="modal" data-bs-target="#LoginModal">Login</button>
+                {:else}
+                    <button class="btn btn-outline-success" on:click={logout}>{username}</button>
+                     {/if}
+                <!-- <a class="btn btn-outline-success" href="/login" data-bs-toggle="modal" data-bs-target="#LoginModal">Login</a> -->
             </div>
         </div>
     </div>
 </nav>
 
 <!-- Modal -->
-<Login />
+<Login {login}/>
+
+<script>
+    import Login from "./Login.svelte";
+
+    let username = '';
+
+    try {
+        username = localStorage.getItem('user') || '';
+    } catch (error) {
+        null
+    }
+
+    /**
+     * @param {string} user
+     */
+    function login(user) {
+        localStorage.setItem('user', user);
+        alert('Login success');
+        username = user;
+        
+    }
+
+    function logout() {
+        let confirmLogout = confirm('Are you sure to logout?');
+        if (confirmLogout) {
+            localStorage.removeItem('user');
+            username = '';
+        }
+    }
+
+</script>
