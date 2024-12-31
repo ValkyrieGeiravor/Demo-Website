@@ -1,3 +1,25 @@
+*{
+    --bg-color: #dfdfdf;
+    --text-color: #333;
+    --link-color: #6f00ff;
+    --fg-color: #f3f3f3;
+}
 body{
-    background-color: black
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: cursive;
+    background-color: var(--bg-color);
+    color: var(--text-color);
+}
+a{
+    text-decoration: none;
+    color: var(--link-color);
+}
+.navbar{
+    background-color: var(--fg-color);
+}
+.nav-link.active{
+    color: var(--link-color);
+    border-bottom: solid 2px var(--link-color);
 }
