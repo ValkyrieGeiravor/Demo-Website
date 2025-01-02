@@ -3,7 +3,7 @@
 <Header/>
 
 <!-- Page content -->
-<div style="min-height: 80vh;">
+<div style="min-height: 100vh;">
     <slot />
 </div>
 

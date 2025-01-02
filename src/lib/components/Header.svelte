@@ -45,8 +45,7 @@
                     <button class="btn btn-outline-success" data-bs-toggle="modal" data-bs-target="#LoginModal">Login</button>
                 {:else}
                     <button class="btn btn-outline-success" on:click={logout}>{username}</button>
-                     {/if}
-                <!-- <a class="btn btn-outline-success" href="/login" data-bs-toggle="modal" data-bs-target="#LoginModal">Login</a> -->
+                {/if}
             </div>
         </div>
     </div>
@@ -63,7 +62,7 @@
     try {
         username = localStorage.getItem('user') || '';
     } catch (error) {
-        null
+        username = ''
     }
 
     /**

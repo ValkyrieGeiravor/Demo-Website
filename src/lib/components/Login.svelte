@@ -2,10 +2,12 @@
 <div class="modal fade" id="LoginModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
+            <!-- Modal header -->
             <div class="modal-header">
                 <h1 class="modal-title fs-5">Login</h1>
                 <button type="button" class="btn-close" id="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
+            <!-- Modal body -->
             <div class="modal-body">
                 <div class="mb-3">
                     <label for="basic-url" class="form-label">Credential your account</label>
@@ -26,6 +28,7 @@
 
                 </div>
             </div>
+            <!-- Modal footer -->
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
                 <button type="submit" class="btn btn-primary" on:click={closeModal}>Login</button>
